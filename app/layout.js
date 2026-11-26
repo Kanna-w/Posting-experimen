@@ -1,4 +1,5 @@
 import { Bricolage_Grotesque, Newsreader } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const display = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-display' });
@@ -12,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id" className={`${display.variable} ${text.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
